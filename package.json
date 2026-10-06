@@ -1,0 +1,12 @@
+{
+  "name": "dsai-conference-2027",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @dsai/web",
+    "dev:api": "npm run dev --workspace @dsai/api",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces"
+  }
+}
