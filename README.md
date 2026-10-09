@@ -41,4 +41,15 @@ npm run lint
 npm run build
 ```
 
-Conference dates, venue, speakers, registration, and submission information are placeholders until confirmed by the organisers.
+The site is a draft. Dates, fees, speakers, committee members, venues, and submission links are shown as pending until confirmed by the organisers.
+
+## Website structure and theme
+
+The site is a static export. `npm run build --workspace @dsai/web` creates deployable files in `apps/web/out/`. Every navigation item, including submenu pages, is generated as a static page.
+
+- Edit navigation labels, routes, and page summaries in `apps/web/src/lib/site-content.ts`.
+- Edit the four palette tokens at the top of `apps/web/src/app/globals.css` to change the theme across the whole site: `--theme-hero` (`#3E5879`), `--theme-cream` (`#F9F8F5`), `--theme-alt` (`#EDECE8`), and `--theme-footer` (`#213555`). Home sections alternate between the warm white and a slightly darker warm white after the hero.
+- The home page sections are in `apps/web/src/app/page.tsx`: About, research topics, important dates, call for papers, program, registration, and venue information. About and Important Date are not separate navigation pages. The remaining pages share the template in `apps/web/src/app/[...slug]/page.tsx`.
+- Page content for the remaining routes is in `apps/web/src/components/reference-content.tsx`. The historical research topics and milestone labels are retained in `apps/web/src/lib/reference-2025.ts` for editing, but past dates and other event details are not displayed on the website.
+
+Pages with unconfirmed details show a short announcement placeholder. Update them as official conference information becomes available.
