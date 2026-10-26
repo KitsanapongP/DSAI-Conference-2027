@@ -34,6 +34,9 @@ export default function ReferenceContent({ path }: { path: string }) {
     case "/dsai2027/call-for-papers":
       body = <Block><ConferenceIntroduction /><ConferenceTopics /></Block>;
       break;
+    case "/dsai2027/conference-topics":
+      body = <Block><ConferenceTopics showTitle={false} /></Block>;
+      break;
     case "/dsai2027/special-sessions":
       body = <Block><Pending>Special session themes and proposal details will be announced.</Pending></Block>;
       break;

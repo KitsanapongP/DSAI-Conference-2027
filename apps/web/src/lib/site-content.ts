@@ -5,6 +5,7 @@ export const navigation: NavItem[] = [
   { title: "Home", href: "/", description: "Conference home" },
   { title: "DSAI2027", href: "/dsai2027", description: "Explore the conference, its people, and opportunities to contribute.", children: [
     { title: "Call for Papers", href: "/dsai2027/call-for-papers", description: "Research themes, paper types, and the call for contributions." },
+    { title: "Conference Topics", href: "/dsai2027/conference-topics", description: "The seven research themes and topics welcomed at DSAI2027." },
     { title: "Special Sessions", href: "/dsai2027/special-sessions", description: "Focused conversations and special session proposals." },
     { title: "Committee", href: "/dsai2027/committee", description: "The people organising the conference." },
     { title: "Reviewer", href: "/dsai2027/reviewer", description: "Information for reviewers and the review process." },
