@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { referenceTopics } from "@/lib/reference-2025";
+import { ConferenceIntroduction, ConferenceTopics } from "@/components/conference-content";
+import { conferenceDate } from "@/lib/conference-2027";
 import { getPage, navigation } from "@/lib/site-content";
 
 function Block({ title, children }: { title?: string; children: React.ReactNode }) {
@@ -28,10 +29,10 @@ export default function ReferenceContent({ path }: { path: string }) {
 
   switch (path) {
     case "/dsai2027":
-      body = <><Block><p>The conference brings together researchers, academics, and practitioners to share work in data science and artificial intelligence, build connections, and explore applications with real world impact.</p></Block><Overview path={path} /></>;
+      body = <><Block><ConferenceIntroduction /><ConferenceTopics /></Block><Overview path={path} /></>;
       break;
     case "/dsai2027/call-for-papers":
-      body = <Block><p>We welcome original research across data science, artificial intelligence, and their applications. The topics below are indicative; the final call and submission requirements will be announced.</p><List items={referenceTopics} /></Block>;
+      body = <Block><ConferenceIntroduction /><ConferenceTopics /></Block>;
       break;
     case "/dsai2027/special-sessions":
       body = <Block><Pending>Special session themes and proposal details will be announced.</Pending></Block>;
@@ -43,7 +44,7 @@ export default function ReferenceContent({ path }: { path: string }) {
       body = <Block><p>Reviewers help assess originality, technical quality, relevance, and contribution. Reviewer invitations and guidance will be announced.</p></Block>;
       break;
     case "/dsai2027/schedule":
-      body = <Block><Pending>The conference schedule, session times, and rooms will be announced.</Pending></Block>;
+      body = <Block><p>The conference will be held on {conferenceDate}.</p><Pending>The conference schedule, session times, and rooms will be announced.</Pending></Block>;
       break;
     case "/submissions":
       body = <><Block><ol className="reference-steps"><li>Prepare an original research paper.</li><li>Submit your manuscript through the conference portal when it opens.</li><li>Review the decision and prepare a final version if accepted.</li><li>Register and present your work.</li></ol></Block><Overview path={path} /></>;

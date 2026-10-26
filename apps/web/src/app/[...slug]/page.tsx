@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReferenceContent from "@/components/reference-content";
+import { SiteIcon } from "@/components/site-icon";
 import { allPages, getGroup, getPage } from "@/lib/site-content";
 
 type Props = { params: Promise<{ slug: string[] }> };
@@ -21,10 +22,11 @@ export default async function ContentPage({ params }: Props) {
   const page = getPage(`/${slug.join("/")}`);
   if (!page || page.href === "/") notFound();
   const group = getGroup(page);
+  const icon = page.href.startsWith("/submissions") ? "paper" : page.href.startsWith("/program") ? "mic" : page.href.startsWith("/venues") ? "pin" : page.href === "/student-grant" ? "ticket" : "network";
 
   return <main className="interior-main">
     <section className="interior-content"><div className="container interior-layout"><div className="interior-body">
-      <span className="eyebrow">{page.group ? <Link href={group?.href ?? "/"}>{page.group.toUpperCase()} ↗</Link> : "CONFERENCE INFORMATION"}</span><h2>{page.title}</h2>
+      <span className="interior-icon"><SiteIcon name={icon} /></span><span className="eyebrow">{page.group ? <Link href={group?.href ?? "/"}>{page.group.toUpperCase()} ↗</Link> : "CONFERENCE INFORMATION"}</span><h2>{page.title}</h2>
       <ReferenceContent path={page.href} />
       <div className="interior-next"><Link href={page.group ? group?.href ?? "/" : "/"}>← {page.group ? `${page.group} overview` : "Back to home"}</Link></div>
     </div></div></section>
