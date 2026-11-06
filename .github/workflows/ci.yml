@@ -1,0 +1,54 @@
+name: Quality and release checks
+
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-fund
+      - run: npm run check
+      - run: npm run audit
+      - run: bash -n scripts/deploy-web.sh scripts/rollback-web.sh scripts/vm-common.sh
+      - name: Upload static export
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: static-site
+          path: apps/web/out
+          retention-days: 3
+
+  container:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-fund
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm run test:container
+      - name: Upload browser diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: browser-diagnostics
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 3

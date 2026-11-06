@@ -1,55 +1,92 @@
 # DSAI Conference 2027
 
-Starter monorepo for the DSAI Conference 2027 website and API.
+Conference information website: Next.js App Router, TypeScript, Tailwind CSS.
+Production is a static export served by Nginx. Fastify and the MariaDB driver
+are local scaffolding; the current public website requires neither API nor database.
 
-## Stack
+## Start development
 
-- Frontend: Next.js App Router, TypeScript, Tailwind CSS
-- Backend: Fastify, TypeScript
-- Database driver: MariaDB Connector/Node.js (`mariadb`), installed but not connected to a server
-- Package management: npm workspaces with one root `package-lock.json`
-
-## Structure
-
-```text
-apps/
-  web/   Next.js conference site
-  api/   Fastify API
-```
-
-## Get started
-
-Use Node.js 20.9 or newer and npm. From the project root:
+Use Node.js 22 (CI/Docker baseline) or 24 and npm with the root lockfile.
 
 ```bash
 npm ci
 npm run dev:web
 ```
 
-The website runs at http://localhost:3000. In another terminal:
+Open http://localhost:3000. Optional local API: `npm run dev:api`, then
+http://127.0.0.1:4000/health (liveness only, no DB connection).
+
+## Check a change
 
 ```bash
-npm run dev:api
+npm run check
+npm run audit
+npx --no-install playwright install chromium
+npm run test:container
 ```
 
-The API runs at http://127.0.0.1:4000. Check `GET /health` for a basic readiness response. The API does not attempt a database connection.
+`check` runs workspace lint/type checks, builds both workspaces and verifies exported
+links/assets. `test:container` requires Docker Engine/Desktop (Linux containers): it
+builds the production image, waits for health, checks Nginx, runs Chromium desktop/mobile
+tests and HTTP smoke on loopback port 3102, then removes only its test containers/network.
+On Linux install browsers with `npx --no-install playwright install --with-deps chromium`.
+CI runs these checks for PRs and the main/codex branches. See [workflow](docs/development-workflow.md).
 
-## Checks
+## Docker preview
 
 ```bash
-npm run lint
-npm run build
+docker compose up -d --build --wait
+docker compose ps
 ```
 
-The site is a draft. Dates, fees, speakers, committee members, venues, and submission links are shown as pending until confirmed by the organisers.
+Open http://127.0.0.1:3002. To customize, copy `.env.example` to `.env` only if no
+existing file is present, then edit `WEB_BIND_IP`, `WEB_PORT`, `IMAGE_TAG` and
+`COMPOSE_PROJECT_NAME`. The old DSAI_BIND_ADDRESS/DSAI_PORT names are no longer used.
 
-## Website structure and theme
+The image builds `apps/web/out/` and runs Nginx as a non-root user on internal port
+8080 with a read-only root filesystem. Build needs internet access for base images,
+npm dependencies and Google Fonts; the resulting runtime serves fonts/assets locally.
+No local Node installation is required for this preview.
 
-The site is a static export. `npm run build --workspace @dsai/web` creates deployable files in `apps/web/out/`. Every navigation item, including submenu pages, is generated as a static page.
+```bash
+docker compose logs --tail=100 web
+docker compose down
+```
 
-- Edit navigation labels, routes, and page summaries in `apps/web/src/lib/site-content.ts`.
-- Edit the four palette tokens at the top of `apps/web/src/app/globals.css` to change the theme across the whole site: `--theme-hero` (`#3E5879`), `--theme-cream` (`#F9F8F5`), `--theme-alt` (`#EDECE8`), and `--theme-footer` (`#213555`). Home sections alternate between the warm white and a slightly darker warm white after the hero.
-- The home page sections are in `apps/web/src/app/page.tsx`: About, research topics, important dates, call for papers, program, registration, and venue information. About and Important Date are not separate navigation pages. The remaining pages share the template in `apps/web/src/app/[...slug]/page.tsx`.
-- Page content for the remaining routes is in `apps/web/src/components/reference-content.tsx`. The historical research topics and milestone labels are retained in `apps/web/src/lib/reference-2025.ts` for editing, but past dates and other event details are not displayed on the website.
+`down` stops/removes only the selected Compose project's containers/network. Do not
+prune images/volumes across a shared VM. Rebuild after source changes; restart alone
+does not update the static export. `next start` is not used for this static site.
 
-Pages with unconfirmed details show a short announcement placeholder. Update them as official conference information becomes available.
+## Release
+
+Read [VM deployment and rollback](docs/deployment.md) and the
+[readiness record](docs/release-readiness.md) before a real deployment.
+Current target supplied by the owner: `project@10.198.110.63`.
+SSH port, domain, HTTPS/proxy and release owners still require confirmation.
+Do not put passwords, tokens or private keys in chat, Git, `.env.example` or images.
+
+Merge, Plesk publish and VM deployment are separate operations. Plesk publishing is
+manual from main after checks. VM deployment requires the full approved commit SHA
+and a configured `.env`; it retains image tags for explicit rollback. No workflow
+automatically deploys to the VM.
+
+## Content and theme
+
+- Navigation/routes: `apps/web/src/lib/site-content.ts`.
+- Conference date/introduction/topics: `apps/web/src/lib/conference-2027.ts`.
+- Home sections: `apps/web/src/app/page.tsx`.
+- Interior pages: `apps/web/src/app/[...slug]/page.tsx` and `apps/web/src/components/reference-content.tsx`.
+- Theme: four palette tokens at the top of `apps/web/src/app/globals.css`:
+  `--theme-hero`, `--theme-cream`, `--theme-alt`, `--theme-footer`.
+- Historical reference labels: `apps/web/src/lib/reference-2025.ts`; past event dates
+  and venues are not published as current conference details.
+- Image credits: `apps/web/public/images/ATTRIBUTION.md`.
+
+The conference date currently displays 10–12 November 2027. Submission portal,
+registration/payment, committees, speakers and venue details are still announcements
+pending organiser confirmation. This is an announcement site, not an operational
+registration or paper-submission system. Content/date/contact approval is a separate
+release requirement.
+
+See [API/Postman scope](docs/api.md), [dependency decisions](docs/security.md) and
+[agent working agreement](AGENTS.md).
