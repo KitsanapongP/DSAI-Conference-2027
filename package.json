@@ -2,11 +2,25 @@
   "name": "dsai-conference-2027",
   "version": "0.1.0",
   "private": true,
-  "workspaces": ["apps/*"],
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev:web": "npm run dev --workspace @dsai/web",
     "dev:api": "npm run dev --workspace @dsai/api",
     "build": "npm run build --workspaces",
-    "lint": "npm run lint --workspaces"
+    "lint": "npm run lint --workspaces",
+    "check": "npm run lint && npm run build && npm run verify:export",
+    "verify:export": "node scripts/verify-export.mjs",
+    "audit": "npm audit --audit-level=high",
+    "test:e2e": "playwright test",
+    "test:container": "node scripts/test-container.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0"
   }
 }

@@ -1,0 +1,27 @@
+services:
+  web:
+    image: ${COMPOSE_PROJECT_NAME:-dsai2027}-web:${IMAGE_TAG:-local}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${WEB_BIND_IP:-127.0.0.1}:${WEB_PORT:-3002}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,uid=101,gid=101
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

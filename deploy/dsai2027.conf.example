@@ -1,0 +1,8 @@
+# Copy to ~/.config/vm-deploy/dsai2027.conf on the VM; chmod 600.
+# Trusted Bash configuration; contains no credentials.
+PROJECT_NAME='dsai2027'
+REPO_URL='git@github.com:KitsanapongP/DSAI-Conference-2027.git'
+DEPLOY_BRANCH='main'
+WEB_SERVICE='web'
+WEB_PORT='3002'
+BIND_IP='127.0.0.1'

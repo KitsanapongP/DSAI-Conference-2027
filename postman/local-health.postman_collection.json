@@ -1,0 +1,15 @@
+{
+  "info": {
+    "name": "DSAI local API health (not deployed)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://127.0.0.1:4000" }],
+  "item": [{
+    "name": "Local liveness",
+    "request": { "method": "GET", "url": "{{baseUrl}}/health" },
+    "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+      "pm.test('Liveness contract', () => pm.expect(pm.response.json()).to.eql({status: 'ok', service: 'dsai-conference-api'}));"
+    ] } }]
+  }]
+}
