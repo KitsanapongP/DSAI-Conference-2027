@@ -28,7 +28,7 @@ Preparation does not approve release or confirm the conference content.
 | Nginx runtime | Real Linux image builds; non-root read-only container becomes healthy; `nginx -t` passes |
 | Browser | 4 Chromium tests pass across desktop/mobile: every published route, direct refresh, navigation, loaded images, no horizontal overflow/page errors; missing page 404 and hidden .env denied |
 | HTTP smoke | Homepage, representative interior pages, CSS/JS/fonts/images and 404 pass through Nginx |
-| Config | Compose config and both workflow YAMLs parse; actual GitHub Actions result must be read on the review branch |
+| Config / CI | Compose/workflow YAML and Bash syntax pass. [PR #1](https://github.com/KitsanapongP/DSAI-Conference-2027/pull/1) is a draft; [CI for application/config commit eff0df2](https://github.com/KitsanapongP/DSAI-Conference-2027/actions/runs/42212099757) passed quality and container. Follow-up updates pin Ubuntu 24.04 and current official Action releases after the runner warned about the old Action runtime; check the latest PR run before merge |
 | VM access | TCP port 22 reachable at 10.198.110.63; strict SSH stopped because no trusted ED25519 host key is known. No host key was auto-accepted; no VM command/deployment ran |
 
 The first runtime test caught an Nginx PID path on the read-only filesystem;
@@ -38,7 +38,7 @@ Mocked release-script checks do not prove GitHub SSH/sudo/Docker behavior on the
 ## Required before production
 
 - [ ] PR reviewed and CI for the approved commit passes; merge to the approved main branch.
-- [ ] Verify GitHub required checks/review branch protection in repository Settings (repository admin).
+- [ ] Configure GitHub required checks/review branch protection in repository Settings (repository admin). Read-only inspection confirmed main is not protected and the repository has no rulesets.
 - [ ] Confirm SSH port, trusted host fingerprint, VPN/access and key or interactive login for `project@10.198.110.63`.
 - [ ] Inspect actual VM OS/architecture/RAM/disk, sudo/Docker, port availability and other hosted sites.
 - [ ] Set up read-only deploy key, clone and protected .env/site config on the VM.
