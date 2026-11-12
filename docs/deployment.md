@@ -72,6 +72,38 @@ curl --fail --silent --show-error http://127.0.0.1:3002/ > /dev/null
 หาก build ล้มเว็บเดิมคงทำงาน; หาก up/health ล้ม container อาจเปลี่ยนแล้ว ต้องตรวจ logs/rollback เอง
 healthy ยังไม่ใช่ยืนยันว่า release ผ่าน URL จริง
 
+### รูปใหม่ตอบ 403 หลัง deploy
+
+กรณี VM วันที่ 12 พ.ย. 2026: commit 68ebe7e ตอบ HTML 200 และ healthy แต่รูปใหม่
+ใน image เป็น root:root 600 จึงตอบ 403 ทั้งที่ 127.0.0.1:3002 และ HTTPS 8443;
+โลโก้เก่าซึ่งเป็น 664 ยังอ่านได้ สาเหตุคือสิทธิ์ source จาก checkout ภายใต้ umask 077
+ถูกส่งต่อไปยัง static export/image โดย runner ใช้ Nginx สิทธิ์จำกัด
+
+Dockerfile รุ่นแก้กำหนดเฉพาะ public webroot เป็น directories 755/files 644 และ
+Nginx site config 644 ระหว่าง build โดยคง root owner และ non-root/read-only runtime
+ไม่ต้อง chmod repository/.env หรือปรับ umask ของ deployment helper
+ให้ deploy commit รุ่นแก้ที่ผ่าน CI ด้วยสคริปต์เดิม ไม่แก้ไฟล์ใน container ที่รันอยู่
+เพราะ runtime เป็น read-only และการแก้ชั่วคราวจะหายเมื่อสร้าง container ใหม่
+
+ตรวจภาพจริงหลัง deploy ด้วย ไม่ใช้แค่ HTML HEAD/healthcheck:
+
+```bash
+curl --fail --head http://127.0.0.1:3002/images/wat-nong-waeng-2400x1600.jpg
+curl --fail --head http://127.0.0.1:3002/images/dsai2027-preliminary-cfp-preview.webp
+```
+
+URL ที่ผู้ดูแลยืนยันระหว่างตรวจ VM: DSAI https://10.198.110.63:8443/ และ INCIT
+https://10.198.110.63:443/ ใช้ host Nginx คนละพอร์ต โดยใช้ self-signed certificate
+ร่วมกันที่ /etc/nginx/ssl/dsai2027/server.crt ตามข้อกำหนดของผู้ดูแล ไม่เปลี่ยนใบรับรอง
+หรือ route ของ INCIT เพื่อแก้ปัญหาไฟล์ใน image ทดสอบ TLS จาก VM โดยระบุ public
+certificate ที่ตรวจสอบแล้วด้วย --cacert และยังคงตรวจชื่อ/IP และ validity ตามปกติ
+ไม่ใช้ -k; browser/client อื่นต้องจัดการ trust กับผู้ดูแลแยกต่างหาก
+
+เก็บ image เดิม git-340cc841da46-20261106T121943Z-26838 ไว้ด้วย รุ่น 68ebe7e
+ที่มีปัญหาภาพจะกลายเป็น previous-release เมื่อปล่อยรุ่นแก้ จึงต้องเลือก rollback tag
+ที่ตรวจสอบแล้ว ไม่เลือก previous tag โดยไม่ดูผลตรวจ รุ่นแก้ยังต้องยืนยันจาก VM จริง
+และ browser หลังผู้ดูแลรัน deploy; local/CI ไม่ใช่หลักฐานว่า production แก้สำเร็จแล้ว
+
 ## HTTPS และเครือข่าย
 
 ถ้า reverse proxy บน VM ให้ upstream `http://127.0.0.1:3002`

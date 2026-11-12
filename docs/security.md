@@ -32,3 +32,10 @@ has no DB/upload volume. Access logs contain client request metadata; confirm lo
 access/retention with the operator. HTTPS certificates/renewal live at the approved
 reverse proxy, not in this repository. HSTS is configured by the HTTPS owner after
 the domain and TLS policy are confirmed.
+
+The runtime image sets public webroot directories to 755 and files to 644, and
+the copied Nginx site config to 644, keeping root ownership. This prevents a
+checkout under the deployment helper's umask 077 from producing unreadable 600
+assets and HTTP 403 responses. Only build output intended for public serving is
+normalized; .env, credentials, keys and host config permissions are not relaxed.
+The deployment helper keeps umask 077 to protect release/config records.

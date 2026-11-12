@@ -29,6 +29,10 @@ npm run test:container
 links/assets. `test:container` requires Docker Engine/Desktop (Linux containers): it
 builds the production image, waits for health, checks Nginx, runs Chromium desktop/mobile
 tests and HTTP smoke on loopback port 3102, then removes only its test containers/network.
+The test build deliberately gives public sources owner-only permissions and the
+copied Nginx site config mode 600, reproducing a restrictive VM checkout. The
+production image normalizes only its static webroot (directories 755/files 644)
+and site config (644); Nginx stays non-root and the runtime stays read-only.
 On Linux install browsers with `npx --no-install playwright install --with-deps chromium`.
 CI runs these checks for PRs and the main/codex branches. See [workflow](docs/development-workflow.md).
 

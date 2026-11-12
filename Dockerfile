@@ -17,6 +17,11 @@ RUN sed -i '/^user /d; s|^pid .*;|pid /tmp/nginx.pid;|' /etc/nginx/nginx.conf \
     && rm -f /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/apps/web/out /usr/share/nginx/html
+# A VM checkout under umask 077 can propagate owner-only public asset modes.
+# Normalize only public web output/config; keep root ownership and non-root Nginx.
+RUN chmod 644 /etc/nginx/conf.d/default.conf \
+    && find /usr/share/nginx/html -type d -exec chmod 755 {} + \
+    && find /usr/share/nginx/html -type f -exec chmod 644 {} +
 
 USER nginx
 EXPOSE 8080
