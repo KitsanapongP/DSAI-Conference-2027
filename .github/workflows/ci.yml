@@ -23,7 +23,7 @@ jobs:
       - run: npm ci --no-fund
       - run: npm run check
       - run: npm run audit
-      - run: bash -n scripts/deploy-web.sh scripts/rollback-web.sh scripts/vm-common.sh
+      - run: bash -n scripts/deploy-web.sh scripts/rollback-web.sh scripts/vm-common.sh scripts/vm-deploy-command.sh scripts/install-vm-deploy-command.sh
       - name: Upload static export
         uses: actions/upload-artifact@v7.0.2
         with:

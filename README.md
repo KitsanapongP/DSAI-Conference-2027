@@ -65,14 +65,18 @@ does not update the static export. `next start` is not used for this static site
 
 Read [VM deployment and rollback](docs/deployment.md) and the
 [readiness record](docs/release-readiness.md) before a real deployment.
+For a reusable `~/bin/deploy-web site.conf` entry point, see
+[one-command VM deployment](docs/vm-deploy-command.md). It reads the reviewed
+deployment branch from the selected site config and deploys its latest fetched
+tip. Merge review/CI must happen before using this command; it does not query CI.
 Current target supplied by the owner: `project@10.198.110.63`.
 SSH port, domain, HTTPS/proxy and release owners still require confirmation.
 Do not put passwords, tokens or private keys in chat, Git, `.env.example` or images.
 
 Merge, Plesk publish and VM deployment are separate operations. Plesk publishing is
-manual from main after checks. VM deployment requires the full approved commit SHA
-and a configured `.env`; it retains image tags for explicit rollback. No workflow
-automatically deploys to the VM.
+manual from main after checks. VM deployment uses a configured `.env` and either
+the shared latest-main command or the original explicit-SHA helper; both retain
+image tags for explicit rollback. No workflow automatically deploys to the VM.
 
 ## Content and theme
 
