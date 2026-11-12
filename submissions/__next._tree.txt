@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/3lx9rso65lkws.css","style"]
+:HL["/_next/static/chunks/1rozdorfdb_mn.css","style"]
 :HL["/_next/static/media/65341aea9fb91af5-s.p.1dqa_6e_ad4sj.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"slug","t":"c","k":"submissions","s":[]},"h":64,"c":"$Q2"}]]
-0:{"b":"UYjJHNXFrU_3-htTFU-Uj","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"V2bAFMrquBmINWBlDW1j_","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
