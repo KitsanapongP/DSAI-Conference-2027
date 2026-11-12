@@ -7,7 +7,7 @@ export function ConferenceIntroduction() {
 export function ConferenceTopics({ showTitle = true }: { showTitle?: boolean }) {
   const TopicHeading = showTitle ? "h4" : "h3";
   const content = <>
-    <p>Topics of interest include, but are not limited to:</p>
+    <p>Six proposed groups, subject to DS-AI confirmation, as listed in the preliminary Call for Papers:</p>
     <ol className="conference-topic-groups">{conferenceTopics.map((group) => <li key={group.title}>
       <TopicHeading>{group.title}</TopicHeading>
       <ul>{group.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>

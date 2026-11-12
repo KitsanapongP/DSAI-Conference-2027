@@ -21,7 +21,7 @@ test('visitors can navigate and refresh conference topics', async ({ page }, tes
   await expect(page).toHaveURL(/\/dsai2027\/conference-topics\/?$/);
   await expect(page.getByRole('heading', { name: 'Conference Topics', exact: true })).toBeVisible();
   await page.reload();
-  await expect(page.getByText('Responsible AI and AI Safety', { exact: true })).toBeVisible();
+  await expect(page.getByText('Trustworthy, Responsible and Human-Centered AI', { exact: true })).toBeVisible();
   if (testInfo.project.name === 'mobile') {
     await page.getByLabel('Open navigation').click();
     const nav = page.getByRole('navigation', { name: 'Mobile navigation' });
