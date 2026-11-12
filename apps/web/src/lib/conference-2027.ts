@@ -1,4 +1,5 @@
 export const conferenceDate = "10–12 November 2027";
+export const conferenceVenue = "The Heritage Grand Khon Kaen Hotel and Convention";
 
 export const conferenceIntroduction = [
   "The 5th International Conference on Data Science and Artificial Intelligence (DSAI2027) will be held on 10–12 November 2027. The conference brings together researchers, academics, industry professionals, and practitioners to advance data science and artificial intelligence through research, knowledge exchange, and international collaboration. With a focus on Responsible AI, DSAI2027 encourages advances that combine technical excellence with safety, fairness, transparency, and accountability.",
@@ -23,12 +24,16 @@ export const conferenceTopics = [
     "Decision support and AI-driven analytics",
     "Data engineering for AI applications",
   ] },
-  { title: "Trustworthy and Human-Centered AI", topics: [
-    "Explainable, fair, and transparent AI",
-    "Ethical AI and governance",
-    "Privacy-preserving and secure AI",
-    "Human-AI interaction and collaboration",
-    "Responsible AI deployment",
+  { title: "Trustworthy, Responsible and Human-Centered AI", topics: [
+    "Explainable, fair, transparent and ethical AI",
+    "Governance, privacy and secure human-AI interaction",
+    "Responsible AI design, deployment and lifecycle",
+    "Safety evaluation, benchmarking and red teaming",
+    "Risk, societal impact and adversarial robustness",
+    "Alignment, controllability and human oversight",
+    "Generative AI, foundation models and agent safety",
+    "Verification, safety assurance and monitoring",
+    "Incident response and mitigation of AI harms",
   ] },
   { title: "Language, Vision and Multimodal Intelligence", topics: [
     "Natural language processing and large language models",
@@ -49,15 +54,5 @@ export const conferenceTopics = [
     "Probabilistic and logical reasoning",
     "Planning, scheduling, and constraint solving",
     "Explainable and argumentation-based reasoning",
-  ] },
-  { title: "Responsible AI and AI Safety", topics: [
-    "Responsible AI design and lifecycle management",
-    "AI safety evaluation, benchmarking, and red teaming",
-    "AI risk assessment and societal impact assessment",
-    "Robustness, reliability, and adversarial resilience",
-    "AI alignment, controllability, and human oversight",
-    "Safety of generative AI, foundation models, and autonomous agents",
-    "Formal verification and safety assurance for AI systems",
-    "Monitoring, incident response, and mitigation of AI harms",
   ] },
 ] as const;

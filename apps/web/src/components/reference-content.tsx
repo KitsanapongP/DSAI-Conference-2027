@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ConferenceIntroduction, ConferenceTopics } from "@/components/conference-content";
-import { conferenceDate } from "@/lib/conference-2027";
+import { conferenceDate, conferenceVenue } from "@/lib/conference-2027";
 import { getPage, navigation } from "@/lib/site-content";
 
 function Block({ title, children }: { title?: string; children: React.ReactNode }) {
@@ -32,7 +33,7 @@ export default function ReferenceContent({ path }: { path: string }) {
       body = <><Block><ConferenceIntroduction /><ConferenceTopics /></Block><Overview path={path} /></>;
       break;
     case "/dsai2027/call-for-papers":
-      body = <Block><ConferenceIntroduction /><ConferenceTopics /></Block>;
+      body = <><Block title="Preliminary Call for Papers"><p>The 5th International Conference on Data Science and Artificial Intelligence — Responsible AI.</p><p><strong>{conferenceDate}</strong><br />{conferenceVenue}<br />Khon Kaen, Thailand</p><p>Submission deadlines, author guidelines, submission portal, PC Chairs and proceedings arrangements will be announced.</p><div className="cfp-actions"><a className="button button-sand" href="/images/dsai2027-preliminary-cfp.jpg" target="_blank" rel="noopener noreferrer">Open full-size poster</a><a className="button" href="/images/dsai2027-preliminary-cfp.jpg" download>Download poster (JPG)</a></div><a href="/images/dsai2027-preliminary-cfp.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the preliminary Call for Papers poster at full size"><Image className="cfp-poster" src="/images/dsai2027-preliminary-cfp-preview.webp" alt="DSAI 2027 preliminary Call for Papers poster. Date, venue, proposed topics and pending submission details are provided as text on this page." width={1600} height={2263} sizes="(max-width: 700px) 100vw, 850px" unoptimized /></a></Block><Block><ConferenceTopics /></Block></>;
       break;
     case "/dsai2027/conference-topics":
       body = <Block><ConferenceTopics showTitle={false} /></Block>;
@@ -86,7 +87,7 @@ export default function ReferenceContent({ path }: { path: string }) {
       body = <Block><Pending>City tour details will be announced.</Pending></Block>;
       break;
     case "/venues":
-      body = <><Block><Pending>The host venue and travel details will be announced.</Pending></Block><Overview path={path} /></>;
+      body = <><Block title={conferenceVenue}><p>Khon Kaen, Thailand</p><p>This venue is listed in the preliminary Call for Papers for {conferenceDate}.</p><Pending>Travel details will be announced.</Pending></Block><Overview path={path} /></>;
       break;
     case "/venues/accommodations":
       body = <Block><Pending>Accommodation recommendations and booking information will be announced.</Pending></Block>;

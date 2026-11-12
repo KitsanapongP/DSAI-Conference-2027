@@ -81,10 +81,37 @@ automatically deploys to the VM.
 - Historical reference labels: `apps/web/src/lib/reference-2025.ts`; past event dates
   and venues are not published as current conference details.
 - Image credits: `apps/web/public/images/ATTRIBUTION.md`.
+- Typography: shared `--text-*`, `--leading-*` and `--weight-*` tokens in
+  `globals.css`, based on Home. Body copy/lists use 16px with 1.85 line height;
+  section/page headings share the responsive 31–45px scale, subheadings 20px,
+  controls/navigation 13px and labels 10px. Hero and brand retain their own scale.
 
-The conference date currently displays 10–12 November 2027. Submission portal,
-registration/payment, committees, speakers and venue details are still announcements
-pending organiser confirmation. This is an announcement site, not an operational
+The homepage currently uses the owner's supplied sunset photograph of Phra
+Mahathat Kaen Nakhon at Wat Nong Waeng, copied unchanged as
+`apps/web/public/images/wat-nong-waeng-original.jpg` (11049 × 4672 px), with the
+supplied `wat-nong-waeng-2400x1600.jpg` crop used on narrower screens. Lightweight
+The current preview uses the supplied 2400 × 1600 crop on desktop as requested;
+narrower screens use its lightweight WebP derivative. The wide original remains
+available in the project. CSS preserves
+the right edge and complete temple; CSS may trim surrounding sky/foreground. Credit/rights
+provenance is recorded in ATTRIBUTION.md; the previous Commons image's CC license
+does not apply to this replacement. It illustrates Khon Kaen, not a confirmed
+conference venue. Contact retains Khon Kaen University and the original postal
+address; only the email is replaced with `sarunap@kku.ac.th`, as supplied by the
+site owner. No personal name or telephone number is published.
+
+For replacement full-width hero banners, request 2400 × 960 px (approximately
+2.5:1; the previous banner was 1983 × 793 px), with the landmark on the right
+and space on the left for HTML text. Uncropped photographs can also be supplied
+(the current sources include a 2400 × 1600 px crop); check responsive cropping on
+desktop and mobile. Supply photographer credit and reuse permission with images.
+
+The supplied preliminary CFP is published on `/dsai2027/call-for-papers`, with a
+readable preview and original JPG download. Its six proposed topic groups are
+marked subject to DS-AI confirmation. The date is 10–12 November 2027 and the
+venue listed in the preliminary CFP is The Heritage Grand Khon Kaen Hotel and
+Convention, Khon Kaen, Thailand. Submission portal, registration/payment,
+committees, speakers and travel details remain pending. This is an announcement site, not an operational
 registration or paper-submission system. Content/date/contact approval is a separate
 release requirement.
 

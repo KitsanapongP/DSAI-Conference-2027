@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SiteIcon } from "@/components/site-icon";
 import { referenceDates } from "@/lib/reference-2025";
-import { conferenceDate, conferenceIntroduction } from "@/lib/conference-2027";
+import { conferenceDate, conferenceIntroduction, conferenceVenue } from "@/lib/conference-2027";
 import { ConferenceIntroduction } from "@/components/conference-content";
 
 function Arrow() { return <SiteIcon name="arrow" className="link-arrow" />; }
@@ -10,7 +10,7 @@ function Arrow() { return <SiteIcon name="arrow" className="link-arrow" />; }
 export default function Home() {
   return <main>
     <section className="hero-section" id="home">
-      <Image className="hero-photo" src="/images/generated-city-hero.webp" alt="" fill sizes="100vw" preload unoptimized />
+      <div className="hero-image"><picture><source media="(max-width: 1150px)" srcSet="/images/wat-nong-waeng-mobile.webp" /><Image className="hero-photo" src="/images/wat-nong-waeng-2400x1600.jpg" alt="Phra Mahathat Kaen Nakhon at Wat Nong Waeng, Khon Kaen, at sunset" fill sizes="(max-width: 1150px) 100vw, 1200px" preload={false} loading="eager" unoptimized /></picture></div>
       <div className="container hero-grid">
         <div className="hero-content">
           <h1>Data Science &amp;<br /><span>Artificial Intelligence</span></h1>
@@ -41,7 +41,7 @@ export default function Home() {
     <section className="home-section home-call" aria-labelledby="call-title">
       <div className="container home-section-inner">
         <div className="home-section-heading"><span className="section-index">03 / CONTRIBUTE</span><h2 id="call-title">Call for Papers</h2></div>
-        <div className="home-section-body"><p className="home-lead">{conferenceIntroduction[3]}</p><Link className="underlined-link" href="/dsai2027/call-for-papers">Call for Papers <Arrow /></Link></div>
+        <div className="home-section-body"><p className="home-lead">{conferenceIntroduction[3]}</p><p>The preliminary Call for Papers is now available. Submission deadlines and author guidelines will be announced.</p><Link className="underlined-link" href="/dsai2027/call-for-papers">View Call for Papers <Arrow /></Link><a className="underlined-link" href="/images/dsai2027-preliminary-cfp.jpg" download>Download CFP poster (JPG) <Arrow /></a></div>
       </div>
     </section>
 
@@ -62,7 +62,7 @@ export default function Home() {
     <section className="home-section home-venue" aria-labelledby="venue-title">
       <div className="container home-section-inner">
         <div className="home-section-heading"><span className="section-index">06 / VISIT</span><h2 id="venue-title">Venue &amp; Travel</h2></div>
-        <div className="home-section-body"><p className="home-lead">The host venue and travel information will be announced.</p><Link className="underlined-link" href="/venues">Venue information <Arrow /></Link></div>
+        <div className="home-section-body"><p className="home-lead">{conferenceVenue}<br />Khon Kaen, Thailand</p><p>Venue listed in the preliminary Call for Papers. Travel information will be announced.</p><Link className="underlined-link" href="/venues">Venue information <Arrow /></Link></div>
       </div>
     </section>
   </main>;
