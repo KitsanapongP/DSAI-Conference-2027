@@ -83,8 +83,10 @@ strong, b { font-weight: 600; }
 .hero-content h1 span { color: var(--theme-hero); }
 .hero-date { display: flex; align-items: center; gap: 13px; margin: 0 0 30px; color: var(--theme-ink); font-size: clamp(21px, 2.1vw, 30px); font-weight: 650; line-height: 1.4; }
 .hero-date svg { width: 25px; height: 25px; flex: none; color: var(--theme-blue-text); }
-.hero-actions .button { background: var(--theme-ink); color: #fff; border-radius: 999px; padding-inline: 25px; }
+.hero-actions .button { background: var(--theme-ink); color: #fff; border: 1px solid var(--theme-ink); border-radius: 999px; padding-inline: 25px; }
 .hero-actions .text-link { min-height: 48px; padding: 13px 22px; border: 1px solid var(--theme-ink); border-radius: 999px; background: rgb(255 255 255 / 80%); color: var(--theme-ink); }
+.hero-actions :is(.button, .text-link) { transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.hero-actions :is(.button, .text-link):is(:hover, :focus-visible) { background: var(--theme-hover); color: var(--theme-blue-text); border-color: var(--theme-blue-text); }
 .eyebrow.light { color: var(--theme-alt); }
 .hero-content .eyebrow { display: flex; align-items: center; gap: 9px; }
 .hero-kicker-icon { width: 18px; height: 18px; }
@@ -134,7 +136,7 @@ a:hover > .link-arrow, a:focus-visible > .link-arrow { transform: translateX(4px
 .home-archive-links { display: flex; flex-wrap: wrap; gap: 10px 15px; padding-bottom: 21px; }.home-archive-links a { padding: 7px 9px; font-size: var(--text-ui); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: background .2s ease, transform .2s ease, color .2s ease;  line-height: var(--leading-ui); }.home-archive-links a:hover, .home-archive-links a:focus-visible { transform: translateX(4px); background: var(--theme-hover); color: var(--theme-blue-text); }
 .milestone-list, .home-name-list, .home-fee-list { border-top: 1px solid var(--theme-line); }
 .milestone, .home-name-list > div, .home-fee-list > div { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 17px 0; border-bottom: 1px solid var(--theme-line); font-size: var(--text-ui); line-height: var(--leading-ui); }
-.milestone { align-items: center; padding-inline: 10px; transition: background .25s ease, padding-left .25s ease; }.milestone:hover { padding-left: 18px; background: color-mix(in srgb, var(--theme-paper) 58%, transparent); }.milestone strong { display: inline-flex; align-items: center; gap: 12px; }.milestone strong svg { width: 17px; height: 17px; flex: none; color: var(--theme-blue-text); }
+.milestone { align-items: center; padding-inline: 10px; transition: background .25s ease, color .25s ease, padding-left .25s ease; }.milestone:hover { padding-left: 18px; background: var(--theme-hover); color: var(--theme-blue-text); }.milestone:hover span { color: var(--theme-blue-text); }.milestone strong { display: inline-flex; align-items: center; gap: 12px; }.milestone strong svg { width: 17px; height: 17px; flex: none; color: var(--theme-blue-text); }
 .milestone strong, .home-name-list strong, .home-fee-list strong { font-weight: 600; }.milestone span, .home-name-list span, .home-fee-list span { color: var(--theme-ink-soft); text-align: right; }
 .home-fact-list { margin: 20px 0; padding-left: 20px; color: var(--theme-ink-soft); font-size: var(--text-body); line-height: var(--leading-body);  font-weight: 400; }
 .home-section-body .home-note { font-size: var(--text-small);  line-height: var(--leading-ui); }.underlined-link { display: flex; width: min(100%, 320px); align-items: center; justify-content: space-between; gap: 22px; margin-top: 16px; padding: 13px 12px; border-bottom: 1px solid var(--theme-line); font-size: var(--text-ui); font-weight: var(--weight-ui); transition: background .2s ease, padding-left .2s ease, color .2s ease;  line-height: var(--leading-ui); }.underlined-link:hover, .underlined-link:focus-visible { padding-left: 20px; background: var(--theme-hover); color: var(--theme-blue-text); }
