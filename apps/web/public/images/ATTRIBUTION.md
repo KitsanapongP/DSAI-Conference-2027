@@ -1,5 +1,13 @@
 # Image sources
 
+## DSAI header logo
+
+- Supplied by the site owner on 12 November 2026 as dsai logo.png.
+- Local asset: dsai-logo.png (1920 × 393, PNG with alpha), copied unchanged.
+- Replaces the previous CSS/text DSAI mark in the shared header on all pages.
+- Displayed without cropping or changing its aspect ratio; responsive CSS sizing.
+- No third-party license is inferred; supplied for this conference website.
+
 ## Current hero
 
 - Source files supplied by the site owner on 12 November 2026, copied unchanged:

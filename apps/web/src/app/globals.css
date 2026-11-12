@@ -49,11 +49,7 @@ strong, b { font-weight: 600; }
 .kku-logo { width: 110px; }
 .cp-logo { width: 120px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; flex: none; }
-.brand-mark { display: flex; width: 48px; height: 48px; justify-content: center; align-items: center; background: var(--theme-ink); color: var(--theme-cream); font-size: 16px; font-weight: 800; letter-spacing: -.09em; }
-.brand-slash { margin: 0 2px; font-size: 20px; font-weight: 400; }
-.brand-copy { display: flex; flex-direction: column; gap: 4px; }
-.brand-copy strong { font-size: 21px; letter-spacing: -.06em; line-height: 1; }.brand-copy em { color: var(--theme-blue-text); font-style: normal; font-weight: 400; }
-.brand-copy small { font-size: 9px; font-weight: var(--weight-ui); letter-spacing: .11em; white-space: nowrap; }
+.dsai-logo { display: block; width: 230px; height: auto; object-fit: contain; }
 .desktop-navigation { display: flex; align-items: stretch; gap: clamp(13px, 1.35vw, 22px); align-self: stretch; }
 .nav-link { position: relative; display: inline-flex; height: 100%; align-items: center; gap: 5px; white-space: nowrap; font-size: var(--text-ui); font-weight: var(--weight-ui);  line-height: var(--leading-ui); }
 .nav-link::after { content: ""; position: absolute; right: 0; bottom: 20px; left: 0; height: 2px; background: var(--theme-blue); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
@@ -186,7 +182,7 @@ a:hover > .link-arrow, a:focus-visible > .link-arrow { transform: translateX(4px
 
 @media (max-width: 1080px) {
   .interior-layout { grid-template-columns: 190px minmax(0, 1fr); gap: 28px; }
-  .container { width: min(100% - 54px, 1220px); }.brand-copy small { display: none; }.desktop-navigation { gap: 11px; }.nav-link { font-size: var(--text-ui);  line-height: var(--leading-ui); }
+  .container { width: min(100% - 54px, 1220px); }.desktop-navigation { gap: 11px; }.nav-link { font-size: var(--text-ui);  line-height: var(--leading-ui); }
 }
 @media (max-width: 1150px) {
   .hero-section::before { display: none; }
@@ -208,8 +204,8 @@ a:hover > .link-arrow, a:focus-visible > .link-arrow { transform: translateX(4px
   .interior-explore { display: none; }
 }
 @media (max-width: 600px) {
-  .header-inner { gap: 8px; }.header-brands { gap: 8px; }.header-brands .brand-copy { display: none; }.institution-logo { width: clamp(60px, 20vw, 110px); }
-  .container { width: min(100% - 38px, 1220px); }.header-inner { min-height: 72px; }.brand-mark { width: 42px; height: 42px; font-size: 14px; }.brand-copy strong { font-size: 18px; }.mobile-panel { right: -19px; top: 37px; }
+  .header-inner { gap: 8px; }.header-brands { gap: 6px; }.dsai-logo { width: clamp(100px, 30vw, 160px); }.institution-logo { width: clamp(40px, 14vw, 70px); }
+  .container { width: min(100% - 38px, 1220px); }.header-inner { min-height: 72px; }.mobile-panel { right: -19px; top: 37px; }
   .hero-grid { padding-block: 70px 75px; }.hero-content h1 { font-size: clamp(34px, 9vw, 48px); }.hero-lead { font-size: var(--text-body);  line-height: var(--leading-body);  font-weight: 400; }.hero-art { display: none; }
   .home-section { padding-block: 65px; }.home-topic-list, .reference-grid, .reference-link-grid, .reference-list { grid-template-columns: 1fr; }.milestone, .home-name-list > div, .home-fee-list > div { flex-direction: column; gap: 3px;  font-size: var(--text-ui);  line-height: var(--leading-ui); }.milestone span, .home-name-list span, .home-fee-list span { text-align: left; }
   .reference-rows > div { flex-direction: column; gap: 2px;  font-size: var(--text-body);  line-height: var(--leading-body);  font-weight: 400; }.reference-rows > div > span { text-align: left; }.reference-day .reference-rows > div { flex-direction: row; }.reference-day .reference-rows span { width: 85px; }

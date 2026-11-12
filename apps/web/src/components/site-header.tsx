@@ -8,7 +8,7 @@ export function SiteHeader() {
   return <header className="site-header">
     <div className="header-inner container">
       <div className="header-brands">
-        <Link href="/" className="brand" aria-label="DSAI 2027 home"><span className="brand-mark"><span>D</span><span className="brand-slash">/</span><span>AI</span></span><span className="brand-copy"><strong>DSAI <em>2027</em></strong><small>INTERNATIONAL CONFERENCE</small></span></Link>
+        <Link href="/" className="brand" aria-label="DSAI 2027 home"><Image className="dsai-logo" src="/images/dsai-logo.png" alt="DSAI 2027" width={1920} height={393} loading="eager" unoptimized /></Link>
         <Image className="institution-logo kku-logo" src="/images/kku-logo.png" alt="Khon Kaen University" width={7016} height={2946} unoptimized />
         <Image className="institution-logo cp-logo" src="/images/cp-logo.png" alt="College of Computing, Khon Kaen University" width={1814} height={548} unoptimized />
       </div>

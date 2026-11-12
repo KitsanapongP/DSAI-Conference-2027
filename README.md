@@ -85,6 +85,9 @@ automatically deploys to the VM.
 - Historical reference labels: `apps/web/src/lib/reference-2025.ts`; past event dates
   and venues are not published as current conference details.
 - Image credits: `apps/web/public/images/ATTRIBUTION.md`.
+- Header branding: owner-supplied `apps/web/public/images/dsai-logo.png`, displayed
+  at its original aspect ratio with responsive widths alongside the KKU/Computing
+  logos. The shared header applies on Home and all interior pages.
 - Typography: shared `--text-*`, `--leading-*` and `--weight-*` tokens in
   `globals.css`, based on Home. Body copy/lists use 16px with 1.85 line height;
   section/page headings share the responsive 31–45px scale, subheadings 20px,
