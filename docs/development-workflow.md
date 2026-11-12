@@ -44,7 +44,7 @@ npm run test:container
 
 - `check`: lint/TypeScript ของ workspaces, production build, ตรวจ reference ภายใน static export
 - `audit`: ตรวจทุก dependency รวมเครื่องมือพัฒนา; high/critical ทำให้ไม่ผ่าน ต้องอ่าน moderate ด้วย
-- `test:container`: ตรวจ release helpers ใน Linux fixture 7 กรณี (mock Git/Docker), build Linux image จริง รอ healthcheck, nginx -t, browser desktop/mobile, smoke HTTP และล้างเฉพาะ test container เมื่อจบ
+- `test:container`: ตรวจ release helpers/คำสั่งกลางใน Linux fixture 20 กรณี (mock Git/Docker), build Linux image จริง รอ healthcheck, nginx -t, browser desktop/mobile, smoke HTTP และล้างเฉพาะ test container เมื่อจบ
 - ชุด build ทดสอบจำลอง public files 600/directories 700 และ Nginx site config 600 ก่อนผ่าน runner จริง เพื่อจับปัญหา umask 077; browser ตรวจภาพ Home/CFP และไฟล์โปสเตอร์ต้นฉบับด้วย
 - ใช้ project `dsai-release-check` และพอร์ต loopback `3102` แยกจาก preview; ต้องเปิด Docker Desktop/Engine และไม่ใช้ test ชุดนี้ซ้อนกัน
 - `test:e2e`: สำหรับ container ที่เปิดไว้เอง ตั้ง `E2E_BASE_URL` เป็น loopback URL เท่านั้น

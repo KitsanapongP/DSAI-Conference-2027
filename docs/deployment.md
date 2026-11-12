@@ -53,6 +53,11 @@ sudo docker compose --env-file .env config --quiet
 
 ## Deploy เมื่ออนุมัติแล้วเท่านั้น
 
+ใช้คำสั่งเดียวแบบข้อ 8 ของคู่มือกลางได้ โดยติดตั้ง entry point ที่อ่าน
+branch จาก config แล้ว deploy branch tip ล่าสุดแบบ fast-forward:
+ดู [คำสั่ง deploy กลางและการติดตั้งครั้งเดียว](vm-deploy-command.md)
+วิธีระบุ SHA โดยตรงด้านล่างยังใช้ได้ตามเดิม
+
 คำสั่งต่อไปนี้เริ่ม/เปลี่ยนบริการจริง จึงยังไม่รันระหว่าง preparation
 ไม่จำเป็นต้องติดตั้ง Node บน VM: build อยู่ใน Docker
 
