@@ -1,6 +1,17 @@
 import { test, expect } from '@playwright/test';
 import { allPages } from '../../apps/web/src/lib/site-content';
 
+test('homepage, CFP preview and original poster are readable by Nginx', async ({ page, request }) => {
+  for (const route of ['/', '/dsai2027/call-for-papers/']) {
+    await page.goto(route);
+    await page.locator('img').evaluateAll(images => images.forEach(image => { image.loading = 'eager'; }));
+    await expect.poll(() => page.locator('img').evaluateAll(images => images.length > 0 && images.every(image => image.complete && image.naturalWidth > 0)), { message: `Images must load on ${route}` }).toBe(true);
+  }
+  const poster = await request.get('/images/dsai2027-preliminary-cfp.jpg');
+  expect(poster.status()).toBe(200);
+  expect(poster.headers()['content-type']).toMatch(/^image\/jpeg/);
+});
+
 test('every published conference route loads directly', async ({ request }) => {
   for (const route of allPages) {
     const response = await request.get(`${route.href.replace(/\/$/, '')}/`);
