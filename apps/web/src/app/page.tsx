@@ -16,7 +16,7 @@ export default function Home() {
           <h1>Data Science &amp;<br /><span>Artificial Intelligence</span></h1>
           <p className="hero-lead">The 5th International Conference on Data Science and Artificial Intelligence</p>
           <p className="hero-date"><SiteIcon name="calendar" />{conferenceDate}</p>
-          <div className="hero-actions"><a className="button button-sand" href="#about">About the conference <Arrow /></a><a className="text-link light-link" href="#dates">Important dates <Arrow /></a></div>
+          <div className="hero-actions"><a className="button" href="#about">About the conference <Arrow /></a><a className="text-link" href="#dates">Important dates <Arrow /></a></div>
         </div>
       </div>
     </section>
