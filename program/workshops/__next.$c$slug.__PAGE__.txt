@@ -1,21 +1,26 @@
-1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/2ttcja1w8i5k2.js"],""]
-3:I[97367,["/_next/static/chunks/2ttcja1w8i5k2.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-8:I[97367,["/_next/static/chunks/2ttcja1w8i5k2.js"],"ViewportBoundary"]
-9:I[97367,["/_next/static/chunks/2ttcja1w8i5k2.js"],"MetadataBoundary"]
-a:I[27201,["/_next/static/chunks/2ttcja1w8i5k2.js"],"IconMark"]
-c:I[39756,["/_next/static/chunks/2ttcja1w8i5k2.js"],"default"]
-d:I[37457,["/_next/static/chunks/2ttcja1w8i5k2.js"],"default"]
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/09ob40hkv-ys0.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+a:I[22016,["$3"],""]
+b:I[97367,["$3"],"OutletBoundary"]
+c:"$Sreact.suspense"
+f:"ViewportBoundary"
+10:I[97367,["$3"],"$f"]
+11:"MetadataBoundary"
+12:I[97367,["$3"],"$11"]
+13:I[27201,["$3"],"IconMark"]
 7:X
-f:X
-f:C
-0:{"buildId":"Dn9bIuLQ_cfFxPnNMEood","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"interior-main","children":["$","section",null,{"className":"interior-content","children":["$","div",null,{"className":"container interior-layout","children":[["$","aside",null,{"className":"interior-aside","children":[["$","nav",null,{"aria-label":"Program contents","children":[["$","p",null,{"className":"eyebrow","children":"In this section"}],["$","h2",null,{"children":"Program"}],["$","ul",null,{"className":"interior-section-links","children":[["$","li","/program",{"children":["$","$L2",null,{"href":"/program","children":"Overview"}]}],["$","li","/program/keynote-speakers",{"children":["$","$L2",null,{"href":"/program/keynote-speakers","children":"Keynote Speakers"}]}],["$","li","/program/invited-speakers",{"children":["$","$L2",null,{"href":"/program/invited-speakers","children":"Invited Speakers"}]}],["$","li","/program/tutorials",{"children":["$","$L2",null,{"href":"/program/tutorials","children":"Tutorials"}]}],["$","li","/program/workshops",{"children":["$","$L2",null,{"href":"/program/workshops","aria-current":"page","children":"Workshops"}]}],["$","li","/program/city-tour",{"children":["$","$L2",null,{"href":"/program/city-tour","children":"City Tour"}]}]]}]]}],["$","nav",null,{"className":"interior-explore","aria-label":"Other conference sections","children":[["$","p",null,{"className":"eyebrow","children":"Explore"}],["$","ul",null,{"children":[["$","li","/",{"children":["$","$L2",null,{"href":"/","children":"Home"}]}],["$","li","/dsai2027",{"children":["$","$L2",null,{"href":"/dsai2027","children":"DSAI2027"}]}],["$","li","/submissions",{"children":["$","$L2",null,{"href":"/submissions","children":"Submissions"}]}],["$","li","/venues",{"children":["$","$L2",null,{"href":"/venues","children":"Venues"}]}],["$","li","/student-grant",{"children":["$","$L2",null,{"href":"/student-grant","children":"Student Grant"}]}]]}]]}]]}],["$","div",null,{"className":"interior-body","children":[["$","span",null,{"className":"interior-icon","children":["$","svg",null,{"className":"","aria-hidden":"true","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"1.7","strokeLinecap":"round","strokeLinejoin":"round","children":[["$","rect",null,{"x":"9","y":"3","width":"6","height":"12","rx":"3"}],["$","path",null,{"d":"M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"}]]}]}],["$","span",null,{"className":"eyebrow","children":["$","$L2",null,{"href":"/program","children":["PROGRAM"," ↗"]}]}],["$","h2",null,{"children":"Workshops"}],["$","div",null,{"className":"reference-content","children":["$","section",null,{"className":"reference-block","children":["$undefined",["$","p",null,{"className":"reference-pending","children":"Workshop topics, speakers, schedules, and registration details will be announced."}]]}]}],["$","div",null,{"className":"interior-next","children":["$","$L2",null,{"href":"/program","children":["← ","Program overview"]}]}]]}]]}]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Workshops | DSAI 2027"}],["$","meta","1",{"name":"description","content":"Focused workshops for deeper discussion."}],["$","link","2",{"rel":"icon","href":"/icon.svg?icon.3-2dcsw0klwqt.svg","sizes":"any","type":"image/svg+xml"}],["$","$La","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}]}]]}],"isPartial":"$@e","staleTime":"$7","varyParams":"$f"}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
-5:null
-11:true
-7:300
 7:C
-10:0
-b:"$undefined"
-e:"$undefined"
+8:X
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","main",null,{"className":"interior-main","children":["$","section",null,{"className":"interior-content","children":["$","div",null,{"className":"container interior-layout","children":[["$","aside",null,{"className":"interior-aside","children":[["$","nav",null,{"aria-label":"Program contents","children":[["$","p",null,{"className":"eyebrow","children":"In this section"}],["$","h2",null,{"children":"Program"}],["$","ul",null,{"className":"interior-section-links","children":[["$","li","/program",{"children":["$","$La",null,{"href":"/program","children":"Overview"}]}],["$","li","/program/keynote-speakers",{"children":["$","$La",null,{"href":"/program/keynote-speakers","children":"Keynote Speakers"}]}],["$","li","/program/invited-speakers",{"children":["$","$La",null,{"href":"/program/invited-speakers","children":"Invited Speakers"}]}],["$","li","/program/tutorials",{"children":["$","$La",null,{"href":"/program/tutorials","children":"Tutorials"}]}],["$","li","/program/workshops",{"children":["$","$La",null,{"href":"/program/workshops","aria-current":"page","children":"Workshops"}]}],["$","li","/program/city-tour",{"children":["$","$La",null,{"href":"/program/city-tour","children":"City Tour"}]}]]}]]}],["$","nav",null,{"className":"interior-explore","aria-label":"Other conference sections","children":[["$","p",null,{"className":"eyebrow","children":"Explore"}],["$","ul",null,{"children":[["$","li","/",{"children":["$","$La",null,{"href":"/","children":"Home"}]}],["$","li","/dsai2027",{"children":["$","$La",null,{"href":"/dsai2027","children":"DSAI2027"}]}],["$","li","/submissions",{"children":["$","$La",null,{"href":"/submissions","children":"Submissions"}]}],["$","li","/venues",{"children":["$","$La",null,{"href":"/venues","children":"Venues"}]}],["$","li","/student-grant",{"children":["$","$La",null,{"href":"/student-grant","children":"Student Grant"}]}]]}]]}]]}],["$","div",null,{"className":"interior-body","children":[["$","span",null,{"className":"eyebrow","children":["$","$La",null,{"href":"/program","children":["PROGRAM"," ↗"]}]}],["$","h2",null,{"children":"Workshops"}],["$","div",null,{"className":"reference-content","children":["$","section",null,{"className":"reference-block","children":["$undefined",["$","p",null,{"className":"reference-pending","children":"Workshop topics, speakers, schedules, and registration details will be announced."}]]}]}],["$","div",null,{"className":"interior-next","children":["$","$La",null,{"href":"/program","children":["← ","Program overview"]}]}]]}]]}]}]}],null,["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]]}],"p":"$@e","v":null,"s":"$8"}}]]
+1:[["children",{"s":{"n":"slug","t":"c","k":"program/workshops","s":[]},"h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L10",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L12",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Workshops | DSAI 2027"}],["$","meta","1",{"name":"description","content":"Focused workshops for deeper discussion."}],["$","link","2",{"rel":"icon","href":"/icon.svg?icon.3-2dcsw0klwqt.svg","sizes":"any","type":"image/svg+xml"}],["$","$L13","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@14","v":null,"s":"$8"}},"a":"$@15","u":"$@16","b":"UYjJHNXFrU_3-htTFU-Uj"}
+d:null
+16:true
+8:300
+8:C
+15:0
 6:"$undefined"
+14:"$undefined"
+e:"$undefined"
