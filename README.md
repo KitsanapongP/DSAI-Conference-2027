@@ -108,7 +108,7 @@ the right edge and complete temple; CSS may trim surrounding sky/foreground. Cre
 provenance is recorded in ATTRIBUTION.md; the previous Commons image's CC license
 does not apply to this replacement. It illustrates Khon Kaen, not a confirmed
 conference venue. Contact retains Khon Kaen University and the original postal
-address; only the email is replaced with `sarunap@kku.ac.th`, as supplied by the
+address; only the email is replaced with `icdsai@kku.ac.th`, as supplied by the
 site owner. No personal name or telephone number is published.
 
 For replacement full-width hero banners, request 2400 × 960 px (approximately
